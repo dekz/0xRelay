@@ -1,4 +1,4 @@
-import * as cqrsDomain from '../../../types/cqrs-domain';
+const cqrsDomain = require("cqrs-domain")
 import { createOrder } from './order/createOrder';
 
 cqrsDomain.defineCommand(createOrder.config, createOrder.handler);

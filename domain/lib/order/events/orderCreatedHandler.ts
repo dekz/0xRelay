@@ -1,4 +1,4 @@
 const cqrsDomain = require("cqrs-domain")
-import { orderCreated } from './order/orderCreated';
+import { orderCreated } from './orderCreated';
 
 cqrsDomain.defineEvent(orderCreated.config, orderCreated.applicator);
