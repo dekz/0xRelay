@@ -1,4 +1,5 @@
-const cqrsDomain = require("cqrs-domain")
-import { order } from './order';
-
-module.exports = cqrsDomain.defineAggregate(order)
+module.exports = require("cqrs-domain").defineAggregate({
+  name: 'order',
+  defaultCommandPayload: 'payload',
+  defaultEventPayload: 'payload'
+})

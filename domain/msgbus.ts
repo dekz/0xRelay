@@ -1,3 +1,5 @@
+// This is an example sample message bus
+
 var redis = require('redis')
   , cmd = redis.createClient()
   , evt = redis.createClient()
