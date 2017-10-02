@@ -26,9 +26,5 @@ domain.defineEvent({
   revision: 'head.revision'
 });
 
-import * as aggregates from './lib/aggregates';
-import * as commands from './lib/commands';
-import * as events from './lib/events'
-
 domain.init((err) => {
 })

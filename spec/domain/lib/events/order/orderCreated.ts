@@ -1,4 +1,4 @@
-import { orderCreated } from '../../../../../domain/lib/events/order/orderCreated';
+import { orderCreated } from '../../../../../domain/lib/order/events/orderCreated';
 
 describe('orderCreated Event', () => {
   it('specifies the correct name', () => {
