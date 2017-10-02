@@ -1,3 +1,5 @@
+import * as uuid from 'node-uuid';
+
 const cqrsDomain = require('cqrs-domain')
 const msgbus     = require('./msgbus')
 
@@ -12,29 +14,31 @@ const domain = cqrsDomain({
 domain.defineCommand({
   id: 'id',
   name: 'command',
-  aggregateId: 'payload.id',
+  aggregateId: 'aggregateId',
   payload: 'payload',
-  revision: 'head.revision'
+  revision: 'head.revision',
 });
 
 domain.defineEvent({
   correlationId: 'commandId',
   id: 'id',
   name: 'event',
-  aggregateId: 'payload.id',
+  aggregateId: 'aggregateId',
   payload: 'payload',
   revision: 'head.revision'
 });
 
+domain.aggregateIdGenerator(() => {
+  return uuid.v4().toString();
+});
+
 domain.init((err) => {
   msgbus.onCommand((cmd) => {
-    console.log('\ndomain -- received command ' + cmd.command + ' from redis:');
-    console.log(cmd);
-
-    console.log('\n-> handle command ' + cmd.command);
+    console.log('\ndomain -- received command ' + cmd.command);
     
     domain.handle(cmd);
   });
+
   domain.onEvent((evt) => {
     console.log('domain: ' + evt.event);
     msgbus.emitEvent(evt);

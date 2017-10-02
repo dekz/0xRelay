@@ -1,6 +1,6 @@
-export const orderCreated = {
+export const orderCancelled = {
   config: {
-    name: 'orderCreated',
+    name: 'orderCancelled',
     aggregateId: 'aggregate.id'
   },
   applicator: (data, aggregate) => { aggregate.set(data) }

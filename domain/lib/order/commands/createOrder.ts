@@ -1,4 +1,11 @@
 export const createOrder = {
-  config: { name: 'createOrder' },
-  handler: (data, aggregate) => { aggregate.apply('orderCreated', data); }
+  config: {
+    name: 'createOrder',
+    aggregateId: 'aggregate.id'
+  },
+  handler: (data, aggregate) => {
+    console.log("handling command")
+    console.log(data);
+    aggregate.apply('orderCreated', data);
+  }
 };
