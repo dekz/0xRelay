@@ -4,7 +4,8 @@ const msgbus     = require('./msgbus')
 const domain = cqrsDomain({
   domainPath: __dirname + '/lib',
   eventStore: {
-    type: 'redis'
+    type: 'redis',
+    prefix: 'eventstore'
   }
 });
 
