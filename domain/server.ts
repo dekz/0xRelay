@@ -1,6 +1,6 @@
 const cqrsDomain = require("cqrs-domain")
+const msgbus     = require("./msgbus")
 
-console.log(__dirname)
 const domain = cqrsDomain({
   domainPath: __dirname + '/lib',
   eventStore: {
@@ -27,4 +27,16 @@ domain.defineEvent({
 });
 
 domain.init((err) => {
+  msgbus.onCommand(function(cmd) {
+    console.log('\ndomain -- received command ' + cmd.command + ' from redis:');
+    console.log(cmd);
+
+    console.log('\n-> handle command ' + cmd.command);
+    
+    domain.handle(cmd);
+  });
+  domain.onEvent(function(evt) {
+    console.log('domain: ' + evt.event);
+    msgbus.emitEvent(evt);
+  });
 })
