@@ -1,0 +1,40 @@
+{
+  "name": "0xrelay",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jacob Evans <jacob@dekz.net>",
+  "license": "MIT",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/spec/.*)\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "dependencies": {
+    "0x.js": "^0.19.0",
+    "cqrs-domain": "^2.9.2",
+    "cqrs-eventdenormalizer": "^1.12.3",
+    "dts-gen": "^0.5.6",
+    "redis": "^2.8.0",
+    "typescript": "^2.5.3",
+    "viewmodel": "^1.7.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.1",
+    "jest": "^21.2.1",
+    "ts-jest": "^21.0.1",
+    "tslint": "^5.7.0"
+  },
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "pretest": "npm run lint",
+    "test": "jest"
+  }
+}
