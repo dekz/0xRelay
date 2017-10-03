@@ -1,0 +1,19 @@
+{
+  "maker": "0xba648d24bd63c90f19e3161b6ff813d3bf9e347c",
+  "taker": "0x0000000000000000000000000000000000000000",
+  "makerFee": "0",
+  "takerFee": "0",
+  "makerTokenAmount": "100000000000000000",
+  "takerTokenAmount": "100000000000000000000000",
+  "makerTokenAddress": "0x05d090b51c40b020eab3bfcb6a2dff130df22e9c",
+  "takerTokenAddress": "0x6ff6c0ff1d68b964901f986d4c9fa3ac68346570",
+  "salt": "36988434274606821587303809148708639380636879716560199942829020497403444618489",
+  "feeRecipient": "0x0000000000000000000000000000000000000000",
+  "exchangeContractAddress": "0x90fe2af704b34e0224bf2299c838e04d4dcf1364",
+  "expirationUnixTimestampSec": "2524568400",
+  "ecSignature": {
+      "v": 27,
+      "r": "0xd427b281dfd9cdeb7b54126f71d51ff7f4627a44b818825c0590367074afaca3",
+      "s": "0x6edbad56128e44ee5b5378d669be8ea1e265195804d4d445006d09c7102dacd7"
+  }
+}

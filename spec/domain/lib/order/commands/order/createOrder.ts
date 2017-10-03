@@ -1,4 +1,4 @@
-import { createOrder } from '../../../../../domain/lib/order/commands/createOrder';
+import { createOrder } from '../../../../../../domain/lib/order/commands/createOrder';
 
 describe('createOrder Command', () => {
   it('specifies the correct command name', () => {

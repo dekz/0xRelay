@@ -1,4 +1,4 @@
-import { updateOrder } from '../../../../../domain/lib/order/commands/updateOrder';
+import { updateOrder } from '../../../../../../domain/lib/order/commands/updateOrder';
 
 describe('updateOrder Command', () => {
   it('specifies the correct command name', () => {

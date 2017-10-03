@@ -9,6 +9,7 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/spec/.*)\\.(jsx?|tsx?)$",
+    "testDirectoryName": "spec",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -18,10 +19,17 @@
     ]
   },
   "dependencies": {
+    "0x-json-schemas": "^0.5.2",
     "0x.js": "^0.19.0",
+    "@types/body-parser": "^1.16.5",
+    "@types/express": "^4.0.37",
+    "@types/node-uuid": "0.0.28",
+    "body-parser": "^1.18.2",
     "cqrs-domain": "^2.9.2",
     "cqrs-eventdenormalizer": "^1.12.3",
     "dts-gen": "^0.5.6",
+    "express": "^4.16.1",
+    "node-uuid": "^1.4.8",
     "redis": "^2.8.0",
     "typescript": "^2.5.3",
     "viewmodel": "^1.7.6"
@@ -36,6 +44,9 @@
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "pretest": "npm run lint",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "web": "node lib/host/server.js",
+    "worker": "node lib/domain/server.js"
   }
 }

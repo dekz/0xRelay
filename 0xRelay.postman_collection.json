@@ -1,0 +1,102 @@
+{
+	"variables": [],
+	"info": {
+		"name": "0xRelay",
+		"_postman_id": "eb26e611-734b-0d4f-8f0d-20596f7f17de",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Orders",
+			"request": {
+				"url": "localhost:3001/v0/orders",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"url": "localhost:3001/v0/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"maker\": \"0xba648d24bd63c90f19e3161b6ff813d3bf9e347c\",\n    \"taker\": \"0x0000000000000000000000000000000000000000\",\n    \"makerFee\": \"0\",\n    \"takerFee\": \"0\",\n    \"makerTokenAmount\": \"100000000000000000\",\n    \"takerTokenAmount\": \"100000000000000000000000\",\n    \"makerTokenAddress\": \"0x05d090b51c40b020eab3bfcb6a2dff130df22e9c\",\n    \"takerTokenAddress\": \"0x6ff6c0ff1d68b964901f986d4c9fa3ac68346570\",\n    \"salt\": \"36988434274606821587303809148708639380636879716560199942829020497403444618489\",\n    \"feeRecipient\": \"0x0000000000000000000000000000000000000000\",\n    \"exchangeContractAddress\": \"0x90fe2af704b34e0224bf2299c838e04d4dcf1364\",\n    \"expirationUnixTimestampSec\": \"2524568400\",\n    \"ecSignature\": {\n        \"v\": 27,\n        \"r\": \"0xd427b281dfd9cdeb7b54126f71d51ff7f4627a44b818825c0590367074afaca3\",\n        \"s\": \"0x6edbad56128e44ee5b5378d669be8ea1e265195804d4d445006d09c7102dacd7\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Order",
+			"request": {
+				"url": "localhost:3001/v0/orders/62d259e0d7e0ba17801f69c82e55e071fdabb910a3091445e14a6a6c0319c791",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"maker\": \"0xba648d24bd63c90f19e3161b6ff813d3bf9e347c\",\n    \"taker\": \"0x0000000000000000000000000000000000000000\",\n    \"makerFee\": \"0\",\n    \"takerFee\": \"0\",\n    \"makerTokenAmount\": \"100000000000000000\",\n    \"takerTokenAmount\": \"100000000000000000000000\",\n    \"makerTokenAddress\": \"0x05d090b51c40b020eab3bfcb6a2dff130df22e9c\",\n    \"takerTokenAddress\": \"0x6ff6c0ff1d68b964901f986d4c9fa3ac68346570\",\n    \"salt\": \"36988434274606821587303809148708639380636879716560199942829020497403444618489\",\n    \"feeRecipient\": \"0x0000000000000000000000000000000000000000\",\n    \"exchangeContractAddress\": \"0x90fe2af704b34e0224bf2299c838e04d4dcf1364\",\n    \"expirationUnixTimestampSec\": \"2524568400\",\n    \"ecSignature\": {\n        \"v\": 27,\n        \"r\": \"0xd427b281dfd9cdeb7b54126f71d51ff7f4627a44b818825c0590367074afaca3\",\n        \"s\": \"0x6edbad56128e44ee5b5378d669be8ea1e265195804d4d445006d09c7102dacd7\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order (invalid Signature)",
+			"request": {
+				"url": "localhost:3001/v0/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"maker\": \"0x9e56625509c2f60af937f23b7b532600390e8c8b\",\n    \"taker\": \"0xa2b31dacf30a9c50ca473337c01d8a201ae33e32\",\n    \"makerFee\": \"100000000000000\",\n    \"takerFee\": \"200000000000000\",\n    \"makerTokenAmount\": \"10000000000000000\",\n    \"takerTokenAmount\": \"20000000000000000\",\n    \"makerTokenAddress\": \"0x323b5d4c32345ced77393b3530b1eed0f346429d\",\n    \"takerTokenAddress\": \"0xef7fff64389b814a946f3e92105513705ca6b990\",\n    \"salt\": \"256\",\n    \"feeRecipient\": \"0x323b5d4c32345ced77393b3530b1eed0f346429d\",\n    \"exchangeContractAddress\": \"0x323b5d4c32345ced77393b3530b1eed0f346429d\",\n    \"expirationUnixTimestampSec\": \"42\",\n    \"ecSignature\": {\n        \"v\": 27,\n        \"r\": \"0x61a3ed31b43c8780e905a260a35faefcc527be7516aa11c0256729b5b351bc33\",\n        \"s\": \"0x40349190569279751135161d22529dc25add4f6069af05be04cacbda2ace2254\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order (invalid)",
+			"request": {
+				"url": "localhost:3001/v0/orders",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"maker\": \"0x9e56625509c2f60af937f23b7b532600390e8c8b\",\n    \"taker\": \"0xa2b31dacf30a9c50ca473337c01d8a201ae33e32\",\n    \"makerFee\": \"100000000000000\",\n    \"takerFee\": \"200000000000000\",\n    \"makerTokenAmount\": \"10000000000000000\",\n    \"takerTokenAmount\": \"20000000000000000\",\n    \"makerTokenAddress\": \"0x323b5d4c32345ced77393b3530b1eed0f346429d\",\n    \"takerTokenAddress\": \"0xef7fff64389b814a946f3e92105513705ca6b990\",\n    \"salt\": \"256\",\n    \"feeRecipient\": \"0x323b5d4c32345ced77393b3530b1eed0f346429d\",\n    \"exchangeContractAddress\": \"0x12459C951127e0c374FF9105DdA097662A027093\",\n    \"expirationUnixTimestampSec\": \"42\",\n    \"ecSignature\": {\n        \"v\": 27,\n        \"r\": \"0x61a3ed31b43c8780e905a260a35faefcc527be7516aa11c0256729b5b351bc33\",\n        \"s\": \"0x40349190569279751135161d22529dc25add4f6069af05be04cacbda2ace2254\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

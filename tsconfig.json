@@ -12,7 +12,7 @@
     },
     "include": [
       "./domain/**/*",
-      "./spec/**/*",
+      "./host/**/*",
       "./types/**/*",
       "./node_modules/types-bn/index.d.ts",
       "./node_modules/types-ethereumjs-util/index.d.ts",

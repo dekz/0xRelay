@@ -2,7 +2,9 @@ import * as express from 'express';
 import * as http from 'http'
 import * as viewmodel from 'viewmodel';
 import * as bodyParser from 'body-parser';
+import * as uuid from 'node-uuid';
 import { actions } from './routes';
+import { OrderRepository } from './order/repositories/orderRepository';
 
 const denormalizer = require('cqrs-eventdenormalizer');
 
@@ -28,7 +30,7 @@ viewmodel.read(options.repository, (err, repository) => {
     correlationId: 'commandId',
     id: 'id',
     name: 'event',
-    aggregateId: 'payload.id',
+    aggregateId: 'aggregateId',
     payload: 'payload',
     revision: 'head.revision'
   });
@@ -36,7 +38,6 @@ viewmodel.read(options.repository, (err, repository) => {
   let msgbus = require('../domain/msgbus');
   eventDenormalizer.init((err) => {
     if(err) { console.log(err) }
-    console.log(eventDenormalizer.getInfo());
 
     msgbus.onEvent((data) => {
       console.log('eventDenormalizer -- denormalize event ' + data.event);
@@ -48,7 +49,7 @@ viewmodel.read(options.repository, (err, repository) => {
     });
 
     app.use(bodyParser.json());
-    actions(app, options, repository);
+    actions(app, options, new OrderRepository(repository), msgbus);
     server.listen(port);
   })
 });
