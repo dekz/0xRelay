@@ -38,6 +38,7 @@
     "@types/jest": "^21.1.1",
     "@types/node": "^8.0.31",
     "jest": "^21.2.1",
+    "newman": "^3.8.3",
     "ts-jest": "^21.0.1",
     "tslint": "^5.7.0"
   },
@@ -47,6 +48,7 @@
     "test": "jest",
     "build": "tsc",
     "web": "node lib/host/server.js",
-    "worker": "node lib/domain/server.js"
+    "worker": "node lib/domain/server.js",
+    "smoke": "newman run 0xRelay.postman_collection.json"
   }
 }

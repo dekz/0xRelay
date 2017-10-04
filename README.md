@@ -64,9 +64,13 @@ should be done for production readyness.
 
 # Running
 
-Test  
+Tests  
 ```
+# Unit tests
 npm run test
+
+# Smoke tests (via Postman Collection)
+npm run smoke
 ```
 
 Redis  

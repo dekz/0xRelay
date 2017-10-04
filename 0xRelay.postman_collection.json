@@ -20,6 +20,17 @@
 		},
 		{
 			"name": "Create Order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;"
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "localhost:3001/v0/orders",
 				"method": "POST",
@@ -40,6 +51,17 @@
 		},
 		{
 			"name": "Cancel Order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "localhost:3001/v0/orders/62d259e0d7e0ba17801f69c82e55e071fdabb910a3091445e14a6a6c0319c791",
 				"method": "DELETE",
@@ -60,6 +82,17 @@
 		},
 		{
 			"name": "Create Order (invalid Signature)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;"
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "localhost:3001/v0/orders",
 				"method": "POST",
@@ -80,6 +113,17 @@
 		},
 		{
 			"name": "Create Order (invalid)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 400\"] = responseCode.code === 400;"
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "localhost:3001/v0/orders",
 				"method": "POST",
